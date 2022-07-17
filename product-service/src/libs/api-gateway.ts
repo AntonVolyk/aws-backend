@@ -1,12 +1,16 @@
 import { Product } from "../interfaces/product";
+import {HttpResponseError} from "../interfaces/http-response-error";
 
-export const formatJSONResponse = (response: Product[] ) => {
+export const formatJSONResponse = (
+    body: Product[] | Product | HttpResponseError,
+    statusCode: number
+) => {
   return {
-    statusCode: 200,
+    statusCode,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true
     },
-    body: JSON.stringify(response)
+    body: JSON.stringify(body)
   }
 }

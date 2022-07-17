@@ -1,12 +1,13 @@
 import { handlerPath } from '@libs/handler-resolver';
+import {GET_METHOD, GET_PRODUCTS_URL} from "../../constants/http-request";
 
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
   events: [
     {
       http: {
-        method: 'get',
-        path: 'products'
+        method: GET_METHOD,
+        path: GET_PRODUCTS_URL
       },
     },
   ],
