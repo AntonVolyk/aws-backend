@@ -5,3 +5,6 @@ export interface Product {
     price: number;
     title: string;
 }
+
+export type ProductList = Product[];
+

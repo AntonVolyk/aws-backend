@@ -13,7 +13,7 @@ export default {
         responses: {
           200: {
             description: 'Successful API response',
-            bodyType: 'Product'
+            bodyType: 'ProductList'
           }
         }
       },

@@ -22,7 +22,7 @@
           "200": {
             "description": "Successful API response",
             "schema": {
-              "$ref": "#/definitions/Product"
+              "$ref": "#/definitions/ProductList"
             }
           }
         }
@@ -92,6 +92,14 @@
       "additionalProperties": false,
       "title": "Product",
       "type": "object"
+    },
+    "ProductList": {
+      "items": {
+        "$ref": "#/definitions/Product",
+        "title": "ProductList.[]"
+      },
+      "title": "ProductList.[]",
+      "type": "array"
     }
   },
   "securityDefinitions": {},
