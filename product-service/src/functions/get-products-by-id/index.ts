@@ -7,7 +7,15 @@ export default {
         {
             http: {
                 method: GET_METHOD,
-                path: GET_PRODUCTS_BY_ID_URL
+                path: GET_PRODUCTS_BY_ID_URL,
+                cors: true,
+                schemes: ['http', 'https'],
+                responses: {
+                    200: {
+                        description: 'Successful API response',
+                        bodyType: 'Product'
+                    }
+                }
             },
         },
     ],
