@@ -11,7 +11,7 @@ import { getProductsByIdHandler} from "../../common/get-products";
 export const getProductsById: APIGatewayProxyHandler = async (event) => {
     try{
         const { id } = event.pathParameters;
-        const product = getProductsByIdHandler(id);
+        const product = await getProductsByIdHandler(id);
 
         if (!product) {
             throw PRODUCTS_NOT_FOUND_ERROR_MESSAGE;
