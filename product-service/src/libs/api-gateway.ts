@@ -1,5 +1,5 @@
 import { Product } from "../interfaces/product";
-import {HttpResponseError} from "../interfaces/http-response-error";
+import { HttpResponseError } from "../interfaces/http-response-error";
 
 export const formatJSONResponse = (
     body: Product[] | Product | HttpResponseError,

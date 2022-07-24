@@ -1,5 +1,8 @@
 import { handlerPath } from '@libs/handler-resolver';
-import {GET_METHOD, GET_PRODUCTS_URL} from "../../constants/http-request";
+import {
+  GET_METHOD,
+  PRODUCTS_URL
+} from "../../constants/http-request";
 
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
@@ -7,7 +10,7 @@ export default {
     {
       http: {
         method: GET_METHOD,
-        path: GET_PRODUCTS_URL,
+        path: PRODUCTS_URL,
         cors: true,
         schemes: ['http', 'https'],
         responses: {

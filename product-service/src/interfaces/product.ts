@@ -1,7 +1,10 @@
+import {Stock} from "./stock";
+
 export interface Product {
-    count: number;
+    id?: string;
     description: string;
-    id: string;
     price: number;
     title: string;
 }
+
+export interface ProductDTO extends Product, Stock {}

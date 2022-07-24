@@ -1,5 +1,5 @@
 import { Product } from '../../interfaces/product';
-import * as productApi from '../../common/get-products';
+import * as productApi from '@libs/get-products';
 import products from '../../mocks/products.json';
 
 const productMock: Product = {
