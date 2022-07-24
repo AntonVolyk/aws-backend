@@ -14,7 +14,7 @@ const {
     PG_PASSWORD
 } = process.env;
 
-const dbOptions = {
+export const dbOptions = {
     host: PG_HOST,
     post: PG_PORT,
     database: PG_DATABASE,

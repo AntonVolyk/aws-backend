@@ -5,4 +5,4 @@ export const productDTOSchema = Joi.object({
     description: Joi.string(),
     count: Joi.number().required(),
     price: Joi.number().required()
-}).meta({ className: 'ProductDTO' });
+});
