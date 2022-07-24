@@ -2,7 +2,7 @@ import { Client } from 'pg';
 import { formatJSONResponse } from '@libs/api-gateway';
 import {
     DB_CONNECTION_ERROR_MESSAGE,
-    ERROR_STATUS_CODE,
+    ERROR_STATUS_CODE_500,
     SUCCESS_STATUS_CODE
 } from '../constants/http-response';
 
@@ -39,7 +39,7 @@ export const getProductsHandler = async (query: string) => {
     } catch(error) {
         return formatJSONResponse(
             { message: DB_CONNECTION_ERROR_MESSAGE },
-            ERROR_STATUS_CODE
+            ERROR_STATUS_CODE_500
         );
     } finally {
         await client.end();

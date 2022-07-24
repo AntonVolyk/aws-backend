@@ -1,12 +1,16 @@
 import {APIGatewayProxyHandler} from "aws-lambda";
 import {dbOptions} from "@libs/pg-helpers";
 import {formatJSONResponse} from "@libs/api-gateway";
-import {DB_CONNECTION_ERROR_MESSAGE, ERROR_STATUS_CODE, SUCCESS_STATUS_CODE} from "../../constants/http-response";
+import {
+    DB_CONNECTION_ERROR_MESSAGE,
+    ERROR_STATUS_CODE_400,
+    ERROR_STATUS_CODE_500, PRODUCT_VALIDATION_ERROR_MESSAGE,
+    SUCCESS_STATUS_CODE
+} from "../../constants/http-response";
 import {getCreateProductQuery} from "../../constants/sql-queries";
 import {middyfy} from "@libs/lambda";
 import {ProductDTO} from "../../interfaces/product";
 import {productDTOSchema} from "../../schemas/product-dto-schema";
-import {PRODUCT_VALIDATION_ERROR_MESSAGE} from "../../constants/http-request";
 import {Pool} from "pg";
 
 export const createProduct: APIGatewayProxyHandler = async (event) => {
@@ -19,7 +23,10 @@ export const createProduct: APIGatewayProxyHandler = async (event) => {
         const { error } = productDTOSchema.validate(body);
 
         if (error) {
-            throw PRODUCT_VALIDATION_ERROR_MESSAGE;
+            return formatJSONResponse(
+                { message: PRODUCT_VALIDATION_ERROR_MESSAGE },
+                ERROR_STATUS_CODE_400
+            );
         }
 
         await client.connect();
@@ -36,7 +43,7 @@ export const createProduct: APIGatewayProxyHandler = async (event) => {
 
         return formatJSONResponse(
             { message: DB_CONNECTION_ERROR_MESSAGE },
-            ERROR_STATUS_CODE
+            ERROR_STATUS_CODE_500
         );
     } finally {
         client.end();
