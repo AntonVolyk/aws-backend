@@ -1,9 +1,12 @@
-import products from '../../mocks/products.json';
-import { formatJSONResponse } from '@libs/api-gateway';
-import { APIGatewayProxyHandler } from "aws-lambda";
-import { middyfy } from "@libs/lambda";
-import { SUCCESS_STATUS_CODE } from "../../constants/http-response";
+import { APIGatewayProxyHandler } from 'aws-lambda';
+import { middyfy } from '@libs/lambda';
+import { GET_PRODUCTS_QUERY } from '../../constants/sql-queries';
+import { getProductsHandler } from '@libs/pg-helpers';
 
-export const getProductsList : APIGatewayProxyHandler = async () => formatJSONResponse(products, SUCCESS_STATUS_CODE);
+export const getProductsList: APIGatewayProxyHandler = async (event) => {
+    console.log('event:', event);
+
+    return getProductsHandler(GET_PRODUCTS_QUERY);
+}
 
 export const main = middyfy(getProductsList);
