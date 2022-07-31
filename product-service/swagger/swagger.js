@@ -26,6 +26,33 @@
             }
           }
         }
+      },
+      "post": {
+        "summary": "createProduct",
+        "description": "",
+        "operationId": "createProduct.post.products",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful API response"
+          }
+        }
       }
     },
     "/products/{id}": {
