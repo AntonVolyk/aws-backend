@@ -1,5 +1,5 @@
 import products from '../../mocks/products.json';
-import { formatJSONResponse } from '@libs/api-gateway';
+import { formatJSONResponse } from '../../../../common/api-gateway';
 import { APIGatewayProxyHandler } from "aws-lambda";
 import { middyfy } from "@libs/lambda";
 import { SUCCESS_STATUS_CODE } from "../../constants/http-response";
