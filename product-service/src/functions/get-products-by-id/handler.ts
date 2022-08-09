@@ -1,7 +1,8 @@
-import { APIGatewayProxyHandler } from 'aws-lambda';
-import { middyfy } from '@libs/lambda';
-import { getProductByIdQuery } from '../../constants/sql-queries';
-import { getProductsHandler } from '@libs/pg-helpers';
+import {APIGatewayProxyHandler} from "aws-lambda";
+import {getProductByIdQuery} from "../../constants/sql-queries";
+import {getProductsHandler} from "@libs/pg-helpers";
+import {middyfy} from "@libs/lambda";
+
 
 export const getProductsById: APIGatewayProxyHandler = async (event) => {
     console.log('event:', event);
