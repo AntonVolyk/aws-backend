@@ -1,4 +1,4 @@
-import {Stock} from "./stock";
+import {Stock} from "../product-service/src/interfaces/stock";
 
 export interface Product {
     id?: string;

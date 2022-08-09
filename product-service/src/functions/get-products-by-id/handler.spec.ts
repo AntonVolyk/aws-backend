@@ -1,4 +1,4 @@
-import { Product } from '../../interfaces/product';
+import { Product } from '../../../../interfaces/product';
 import * as productApi from '@libs/get-products';
 import products from '../../mocks/products.json';
 
