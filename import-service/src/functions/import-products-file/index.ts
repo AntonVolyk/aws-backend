@@ -5,6 +5,11 @@ export default {
     events: [
         {
             http: {
+                authorizer: {
+                    name: '${self:custom.authorizers.basicAuthorizer.name}',
+                    arn: '${self:custom.authorizers.basicAuthorizer.arn}',
+                    type: '${self:custom.authorizers.basicAuthorizer.type}'
+                },
                 method: 'get',
                 path: 'import',
                 cors: true,

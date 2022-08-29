@@ -58,6 +58,13 @@ const serverlessConfiguration: AWS = {
       platform: 'node',
       concurrency: 10,
     },
+    authorizers: {
+      basicAuthorizer: {
+        arn: 'arn:aws:lambda:${aws:region}:${aws:accountId}:function:authorization-service-dev-basicAuthorizer',
+        name: 'basicAuthorizer',
+        type: 'token'
+      },
+    }
   },
 };
 
