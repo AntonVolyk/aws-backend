@@ -29,6 +29,11 @@ const serverlessConfiguration: AWS = {
             Effect: 'Allow',
             Action: ['s3:*'],
             Resource: ['arn:aws:s3:::aws-task-5-bucket/*']
+          },
+          {
+            Effect: 'Allow',
+            Action: ['sqs:*'],
+            Resource: ['arn:aws:sqs:eu-west-1:978255579526:catalog-items-queue']
           }
       ]}
     },
@@ -37,7 +42,10 @@ const serverlessConfiguration: AWS = {
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
     },
   },
-  functions: { importProductsFile, importFileParser },
+  functions: {
+    importProductsFile,
+    importFileParser
+  },
   package: { individually: true },
   custom: {
     esbuild: {

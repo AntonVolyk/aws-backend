@@ -1,10 +1,10 @@
 import { Client } from 'pg';
-import { formatJSONResponse } from '@libs/api-gateway';
 import {
     DB_CONNECTION_ERROR_MESSAGE,
     ERROR_STATUS_CODE_500,
     SUCCESS_STATUS_CODE
 } from '../constants/http-response';
+import {formatJSONResponse} from "../../../common/api-gateway";
 
 const {
     PG_HOST,

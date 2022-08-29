@@ -1,4 +1,4 @@
-import {Product} from "../product-service/src/interfaces/product";
+import {Product} from "../interfaces/product";
 import {ImportProductFileResponse} from "../import-service/src/interfaces/import-product-file-response";
 import {HttpResponseError} from "../interfaces/http-response-error";
 

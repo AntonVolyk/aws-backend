@@ -1,6 +1,5 @@
 import {APIGatewayProxyHandler} from "aws-lambda";
 import {dbOptions} from "@libs/pg-helpers";
-import {formatJSONResponse} from "@libs/api-gateway";
 import {
     DB_CONNECTION_ERROR_MESSAGE,
     ERROR_STATUS_CODE_400,
@@ -9,9 +8,10 @@ import {
 } from "../../constants/http-response";
 import {getCreateProductQuery} from "../../constants/sql-queries";
 import {middyfy} from "@libs/lambda";
-import {ProductDTO} from "../../interfaces/product";
+import {ProductDTO} from "../../../../interfaces/product";
 import {productDTOSchema} from "../../schemas/product-dto-schema";
 import {Pool} from "pg";
+import {formatJSONResponse} from "../../../../common/api-gateway";
 
 export const createProduct: APIGatewayProxyHandler = async (event) => {
     console.log('event:', event);
